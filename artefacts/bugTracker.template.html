@@ -1,0 +1,68 @@
+<style>
+	section{
+		margin-bottom: 10px;
+	}
+	.stats, .bugname{
+		font-size: 22pt;
+	}
+	.bugname{
+		cursor : pointer;
+	}
+	.closed{
+		color : red;
+		font-style: italic;
+		font-weight: bold;
+		text-decoration: line-through;
+	}
+	ol{
+		list-style: none;
+		-webkit-padding-start : 0px;
+		width: 500px;
+	}
+	li{
+		border : 2px solid gray;
+		margin-bottom: 10px;
+		border-radius: 5px;
+		background-color: #e7e7e7;
+		padding: 10px;
+	}
+	.datetime{
+		font-style: italic;
+	}
+</style>
+<h1>Bug Tracker</h1>
+<hr>
+<section class="stats">
+	<span class="closed">2</span>
+	<span> / </span>
+	<span>5</span>
+</section>
+<section class="sort">
+	<label for="">Order By :</label>
+	<select >
+		<option value=""></option>
+		<option value=""></option>
+		<option value=""></option>
+	</select>
+	<label for="">Descending ? :</label>
+	<input type="checkbox" name="" id="">
+</section>
+<section class="edit">
+	<label for="">New Bug :</label>
+	<input type="text" name="" id="">
+	<input type="button" value="Create">
+</section>
+<section class="list">
+	<ol>
+		<li>
+			<span class="bugname">[This is bug - 1]</span>
+			<div class="datetime">[Created At]</div>
+			<a href="#">More...</a>
+		</li>
+		<li>
+			<span class="bugname closed">[This is bug - 2]</span>
+			<div class="datetime">[Created At]</div>
+		</li>
+	</ol>
+	<input type="button" value="Remove Closed">
+</section>

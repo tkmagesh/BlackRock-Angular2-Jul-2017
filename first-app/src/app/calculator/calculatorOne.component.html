@@ -7,4 +7,4 @@
 <input type="button" value="Subtract" (click)="calculator.subtract()">
 <input type="button" value="Multiply" (click)="calculator.multiply()">
 <input type="button" value="Divide" (click)="calculator.divide()">
-<div>{{calculator.result}}</div>
+<calculator-result [data]="calculator.result"></calculator-result>
