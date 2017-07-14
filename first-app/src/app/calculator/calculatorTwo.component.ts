@@ -10,20 +10,4 @@ export class CalculatorTwoComponent{
 
 	operation : string = '';
 
-	calculate(){
-		switch (this.operation) {
-			case 'add':
-				this.calculator.add();
-				break;
-			case 'subtract':
-				this.calculator.subtract();
-				break;
-			case 'multiply':
-				this.calculator.multiply();
-				break;
-			case 'divide':
-				this.calculator.divide();
-				break;
-		}
-	}
 }

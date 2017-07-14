@@ -8,5 +8,5 @@
 	<option value="divide">Divide</option>
 </select>
 <input type="number" [(ngModel)]="calculator.operand2">
-<input type="button" value="Calculate" (click)="calculate()">
+<input type="button" value="Calculate" (click)="calculator[operation]()">
 <div>{{calculator.result}}</div>
