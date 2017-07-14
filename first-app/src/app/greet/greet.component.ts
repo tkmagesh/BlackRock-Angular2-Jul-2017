@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
 	template : `
 		<div>
 		    <label for="">Name :</label>
-		    <input type="text" #txtUserName>
+		    <input type="text" [(ngModel)]="username">
 
-		    <input type="button" value="Greet" (click)="onButtonClick(txtUserName.value)">
+		    <input type="button" value="Greet" (click)="onButtonClick()">
 		  </div>
 		  <h1>
 		    {{message}}
@@ -17,8 +17,10 @@ import { Component } from '@angular/core';
 export class GreetComponent{
 	//title = 'My App';
   message : string = '';
+  username : string = '';
 
-  onButtonClick(username){
-  	this.message = `Hi ${username}, Welcome to My App!`;
+  onButtonClick(){
+  	this.message = `Hi ${this.username}, Welcome to My App!`;
+  	this.username = '';
   }
 }
