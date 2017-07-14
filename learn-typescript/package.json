@@ -1,0 +1,22 @@
+{
+  "name": "learn-typescript",
+  "version": "0.1.0",
+  "description": "a sample app for demonstrating typescript",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc src/app.ts --outDir dist -w",
+    "exec" : "node dist/app.js"
+  },
+  "keywords": [
+    "demo",
+    "ts",
+    "npm"
+  ],
+  "author": "Magesh K",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "typescript": "^2.4.1",
+    "watch-js": "0.0.7"
+  }
+}
