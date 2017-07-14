@@ -1,10 +1,10 @@
 <h1>Calculator-One</h1>
 <hr>
-<input type="number" #txtNumber1>
-<input type="number" #txtNumber2>
+<input type="number" [(ngModel)]="calculator.operand1">
+<input type="number" [(ngModel)]="calculator.operand2">
 <br>
-<input type="button" value="Add" (click)="onAddClick(txtNumber1.value, txtNumber2.value)">
-<input type="button" value="Subtract" (click)="onSubtractClick(txtNumber1.value, txtNumber2.value)">
-<input type="button" value="Multiply" (click)="onMultiplyClick(txtNumber1.value, txtNumber2.value)">
-<input type="button" value="Divide" (click)="onDivideClick(txtNumber1.value, txtNumber2.value)">
+<input type="button" value="Add" (click)="onAddClick()">
+<input type="button" value="Subtract" (click)="onSubtractClick()">
+<input type="button" value="Multiply" (click)="onMultiplyClick()">
+<input type="button" value="Divide" (click)="onDivideClick()">
 <div>{{calculator.result}}</div>
