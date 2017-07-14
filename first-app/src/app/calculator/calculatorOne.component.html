@@ -3,8 +3,8 @@
 <input type="number" [(ngModel)]="calculator.operand1">
 <input type="number" [(ngModel)]="calculator.operand2">
 <br>
-<input type="button" value="Add" (click)="onAddClick()">
-<input type="button" value="Subtract" (click)="onSubtractClick()">
-<input type="button" value="Multiply" (click)="onMultiplyClick()">
-<input type="button" value="Divide" (click)="onDivideClick()">
+<input type="button" value="Add" (click)="calculator.add()">
+<input type="button" value="Subtract" (click)="calculator.subtract()">
+<input type="button" value="Multiply" (click)="calculator.multiply()">
+<input type="button" value="Divide" (click)="calculator.divide()">
 <div>{{calculator.result}}</div>
