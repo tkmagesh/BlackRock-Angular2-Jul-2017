@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { BugTrackerComponent } from './bug-tracker/bugTracker.component';
 
+import { BugOperations } from './bug-tracker/services/BugOperations.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +15,9 @@ import { BugTrackerComponent } from './bug-tracker/bugTracker.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    BugOperations
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
