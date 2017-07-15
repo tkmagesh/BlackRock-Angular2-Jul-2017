@@ -13,7 +13,10 @@ export class BugTrackerComponent{
 	bugs : IBug[] = [];
 
 	constructor(public bugOperations : BugOperations){
-		
+		this.bugs.push(this.bugOperations.createNew('Server communication error'));
+		this.bugs.push(this.bugOperations.createNew('Data integrity check failed'));
+		this.bugs.push(this.bugOperations.createNew('User actions not recognized'));
+		this.bugs.push(this.bugOperations.createNew('Application is not responsive'));
 	}
 
 	onCreateClick(){
