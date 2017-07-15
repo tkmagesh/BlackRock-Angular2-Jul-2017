@@ -11,7 +11,7 @@ export class BugOperations{
 		}
 	}
 
-	toggle(bug : IBug) : void {
-		bug.isClosed = !bug.isClosed;
+	toggle(bug : IBug) : IBug {
+		return {...bug, isClosed : !bug.isClosed};
 	}
 }

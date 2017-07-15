@@ -1,10 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-	name : 'sort'
+	name : 'sort',
+	pure : true
 })
 export class SortPipe implements PipeTransform{
+
 	transform(data : any[], attrName : string, isDescending : boolean = false) : any[] {
+		console.log('sort pipe executed');
 		if (!attrName)
 			return data;
 		let comparer = getComparerFor(attrName);

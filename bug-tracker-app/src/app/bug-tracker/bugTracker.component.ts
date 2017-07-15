@@ -2,6 +2,23 @@ import { Component } from '@angular/core';
 import { IBug } from './models/IBug';
 import { BugOperations } from './services/BugOperations.service';
 
+/*
+window.localStorage (object)
+===================
+- key/value store
+- both key and value must be strings
+- use JSON.stringify & JSON.parse for searialization and deserialization of objects to strings
+- follows Same Origin Policy
+- APIs
+------
+	* setItem(key, value)
+	* getItem(key) returns value
+	* removeItem(key)
+	* clear()
+	* key(index) return key at index location
+	* length
+
+*/
 @Component({
 	selector : 'bug-tracker',
 	templateUrl : 'bugTracker.component.html',
@@ -21,37 +38,21 @@ export class BugTrackerComponent{
 
 	onCreateClick(){
 		let newBug : IBug = this.bugOperations.createNew(this.newBugName);
-		this.bugs.push(newBug);
+		//this.bugs.push(newBug);
+		this.bugs = [...this.bugs, newBug];
 	}
 
-	onBugClick(bug){
-		this.bugOperations.toggle(bug);
+	onBugClick(bugToToggle){
+		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		this.bugs = this.bugs.map(bug => bug === bugToToggle ? toggledBug : bug);
 	}
 
 	onRemoveClosedClick(){
-		for(let index = this.bugs.length -1; index >= 0; index--){
+		/*for(let index = this.bugs.length -1; index >= 0; index--){
 			if (this.bugs[index].isClosed)
 				this.bugs.splice(index, 1);
-		}
-	}
-
-	/*getClosedCount(){
-		let closedCount = 0;
-		for(let index=0, bugsLength = this.bugs.length; index < bugsLength; index++){
-			if (this.bugs[index].isClosed)
-				++closedCount;
-		}
-		return closedCount;
-	}*/
-
-	/*getClosedCount(){
-		return this.bugs.filter(function(bug){
-			return bug.isClosed;
-		}).length;
-	}*/
-
-	getClosedCount(){
-		return this.bugs.reduce<number>((prevResult : number, bug : IBug) => bug.isClosed ? ++prevResult : prevResult, 0);
+		}*/
+		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
 
 
