@@ -9,7 +9,7 @@ export class SortPipe implements PipeTransform{
 			return data;
 		let comparer = getComparerFor(attrName);
 		if (isDescending)
-			comparer = getDescendingComparer(comparer);
+			comparer = comparer.descending();
 		data.sort(comparer);
 		return data;
 	}
@@ -19,17 +19,20 @@ interface IComparer{
 	(item1 : any, item2 : any) : number
 }
 
-function getComparerFor(attrName : string) : IComparer{
-	return function(item1 : any, item2 : any) : number {
+function getComparerFor(attrName : string) : any {
+	let comparer = function(item1 : any, item2 : any)  : number {
 		if (item1[attrName] < item2[attrName]) return -1;
 		if (item1[attrName] > item2[attrName]) return 1;
 		return 0;
-	}
+	};
+	comparer['descending'] = function () {
+		let originalComparer = this;
+		return function(item1 : any, item2 : any) : number {
+			return originalComparer(item1, item2) * -1;
+		}
+	};
+	return comparer;
 }
 
-function getDescendingComparer(comparer : IComparer) : IComparer{
-	return function(item1 : any, item2 : any) : number {
-		return comparer(item1, item2) * -1;
-	}
-}
+
 
