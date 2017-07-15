@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IBug } from './models/IBug';
 import { BugOperations } from './services/BugOperations.service';
+import { BugStorage } from './services/BugStorage.service';
 
 /*
 window.localStorage (object)
@@ -29,21 +30,18 @@ export class BugTrackerComponent{
 
 	bugs : IBug[] = [];
 
-	constructor(public bugOperations : BugOperations){
-		this.bugs.push(this.bugOperations.createNew('Server communication error'));
-		this.bugs.push(this.bugOperations.createNew('Data integrity check failed'));
-		this.bugs.push(this.bugOperations.createNew('User actions not recognized'));
-		this.bugs.push(this.bugOperations.createNew('Application is not responsive'));
+	constructor(private bugStorage : BugStorage){
+		this.bugs = this.bugStorage.getAll();
 	}
 
 	onCreateClick(){
-		let newBug : IBug = this.bugOperations.createNew(this.newBugName);
+		let newBug : IBug = this.bugStorage.addNew(this.newBugName);
 		//this.bugs.push(newBug);
 		this.bugs = [...this.bugs, newBug];
 	}
 
 	onBugClick(bugToToggle){
-		let toggledBug = this.bugOperations.toggle(bugToToggle);
+		let toggledBug = this.bugStorage.toggle(bugToToggle);
 		this.bugs = this.bugs.map(bug => bug === bugToToggle ? toggledBug : bug);
 	}
 
@@ -52,6 +50,11 @@ export class BugTrackerComponent{
 			if (this.bugs[index].isClosed)
 				this.bugs.splice(index, 1);
 		}*/
+		this
+			.bugs
+			.filter(bug => bug.isClosed)
+			.forEach(bug => this.bugStorage.remove(bug));
+			
 		this.bugs = this.bugs.filter(bug => !bug.isClosed);
 	}
 
