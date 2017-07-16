@@ -3,7 +3,7 @@
     {
       "id": 2,
       "name": "Unable to add a new bug",
-      "isClosed": false,
+      "isClosed": true,
       "createdAt": "2017-03-22T10:34:32.520Z"
     },
     {
@@ -11,6 +11,12 @@
       "name": "Promises are not promising",
       "isClosed": false,
       "createdAt": "2017-06-18T09:54:33.044Z"
+    },
+    {
+      "id": 5,
+      "name": "Data integrity checks failed",
+      "isClosed": false,
+      "createdAt": "2017-07-16T09:56:12.705Z"
     }
   ],
   "employees": [
