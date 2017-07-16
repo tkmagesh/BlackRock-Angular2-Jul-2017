@@ -44,9 +44,25 @@ var app = (function(){
 			subscribe : subscribe
 		}
 	})();
+
+	function addAsyncPromise(x,y){
+		var promise = new Promise(function(resolveFn, rejectFn){
+			console.log(`	[Service] processing ${x} and ${y}`);
+			setTimeout(function(){
+				var result = x + y;
+				console.log(`	[Service] returning result`);
+				resolveFn(result);
+			},4000);
+		});
+		return promise;
+	}
+
+
+
 	return {
 		addSyncClient : addSyncClient,
 		addAsyncClient : addAsyncClient,
-		addAsyncEvents : addAsyncEvents
+		addAsyncEvents : addAsyncEvents,
+		addAsyncPromise : addAsyncPromise
 	}
 })();
