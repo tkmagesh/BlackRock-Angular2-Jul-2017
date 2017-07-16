@@ -3,6 +3,15 @@ import { IBug } from './models/IBug';
 import { BugOperations } from './services/BugOperations.service';
 import { BugStorage } from './services/BugStorage.service';
 
+
+
+import add from './utilities';
+import * as utils from './utilities';
+console.log(utils);
+
+console.log(add(100,200));
+
+
 /*
 window.localStorage (object)
 ===================

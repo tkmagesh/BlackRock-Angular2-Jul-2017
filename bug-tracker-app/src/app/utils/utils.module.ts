@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 //pipes
 import { TrimTextPipe } from './pipes/trimText.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { ElapsedPipe } from './pipes/elapsed.pipe';
 
 const ALL_PIPES = [
 	TrimTextPipe,
-	SortPipe
+	SortPipe,
+	ElapsedPipe
 ];
 
 @NgModule({
